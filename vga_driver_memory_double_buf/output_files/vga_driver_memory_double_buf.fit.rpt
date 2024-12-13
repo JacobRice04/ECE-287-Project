@@ -1,5 +1,5 @@
 Fitter report for vga_driver_memory_double_buf
-Thu Oct 31 11:47:39 2024
+Fri Dec 13 00:52:00 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -66,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Thu Oct 31 11:47:39 2024          ;
+; Fitter Status                   ; Successful - Fri Dec 13 00:51:59 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; vga_driver_memory_double_buf                   ;
 ; Top-level Entity Name           ; vga_driver_memory_double_buf                   ;
@@ -157,26 +157,26 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 28          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.10        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.9%      ;
-;     Processor 3            ;   0.8%      ;
-;     Processor 4            ;   0.7%      ;
-;     Processor 5            ;   0.7%      ;
-;     Processor 6            ;   0.7%      ;
+;     Processor 2            ;   0.7%      ;
+;     Processor 3            ;   0.7%      ;
+;     Processor 4            ;   0.6%      ;
+;     Processor 5            ;   0.6%      ;
+;     Processor 6            ;   0.6%      ;
 ;     Processor 7            ;   0.6%      ;
-;     Processor 8            ;   0.6%      ;
-;     Processor 9            ;   0.6%      ;
-;     Processor 10           ;   0.6%      ;
-;     Processor 11           ;   0.6%      ;
-;     Processor 12           ;   0.6%      ;
-;     Processor 13           ;   0.6%      ;
-;     Processor 14           ;   0.6%      ;
-;     Processor 15           ;   0.6%      ;
-;     Processor 16           ;   0.6%      ;
+;     Processor 8            ;   0.5%      ;
+;     Processor 9            ;   0.5%      ;
+;     Processor 10           ;   0.5%      ;
+;     Processor 11           ;   0.5%      ;
+;     Processor 12           ;   0.5%      ;
+;     Processor 13           ;   0.5%      ;
+;     Processor 14           ;   0.5%      ;
+;     Processor 15           ;   0.5%      ;
+;     Processor 16           ;   0.5%      ;
 +----------------------------+-------------+
 
 
@@ -848,7 +848,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.pin.
+The pin-out file can be found in M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.pin.
 
 
 +---------------------------------------------------------------------------------------------+
@@ -3017,7 +3017,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "USB_SCL" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_SDA" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_WR_N" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:05
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:06
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:12
@@ -3030,24 +3030,24 @@ Info (170195): Router estimated average interconnect usage is 1% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:05
-Info (11888): Total time spent on timing analysis during the Fitter is 1.19 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.12 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.fit.smsg
+Info (144001): Generated suppressed messages file M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 181 warnings
     Info: Peak virtual memory: 7953 megabytes
-    Info: Processing ended: Thu Oct 31 11:47:42 2024
-    Info: Elapsed time: 00:01:05
-    Info: Total CPU time (on all processors): 00:01:02
+    Info: Processing ended: Fri Dec 13 00:52:09 2024
+    Info: Elapsed time: 00:01:19
+    Info: Total CPU time (on all processors): 00:00:51
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.fit.smsg.
+The suppressed messages can be found in M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.fit.smsg.
 
 

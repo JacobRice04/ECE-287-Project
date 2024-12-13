@@ -348,7 +348,7 @@ module rectangle_drawer(
         if (rst == 1'b0) begin
             write_en <= 0;
             done <= 0;
-            address <= 0;
+            address <= 15'd0;
         end else begin
             case (current_state)
                 IDLE: begin
@@ -365,12 +365,12 @@ module rectangle_drawer(
                     // Calculate center pixel address
                     // For 160x120 screen, center is at (80,60)
                     // Address = y * width + x = 60 * 160 + 80 = 9680
-                    address <= 15'd9680;  // Center of screen
+                    address <= 15'd0;  // Center of screen
                     write_en <= 0;
                 end
 
                 WRITE_PIXEL: begin
-                    write_en <= 1;  // Enable writing
+             
                 end
 
                 WAIT_WRITE: begin

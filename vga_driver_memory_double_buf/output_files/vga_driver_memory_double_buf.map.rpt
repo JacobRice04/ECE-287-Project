@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_driver_memory_double_buf
-Thu Oct 31 11:46:33 2024
+Fri Dec 13 00:50:40 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -95,7 +95,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Oct 31 11:46:33 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec 13 00:50:39 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; vga_driver_memory_double_buf                   ;
 ; Top-level Entity Name           ; vga_driver_memory_double_buf                   ;
@@ -218,34 +218,36 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
-;     Processors 4-16        ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                               ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                                                       ; Library ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; vga_frame.v                      ; yes             ; User Wizard-Generated File       ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v                    ;         ;
-; debounce.v                       ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v                     ;         ;
-; vga_driver_memory_double_buf.v   ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v ;         ;
-; vga_driver.v                     ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver.v                   ;         ;
-; image.mif                        ; yes             ; User Memory Initialization File  ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/image.mif                      ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                           ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                    ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                              ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                                           ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                                                                           ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                                            ;         ;
-; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                                                                               ;         ;
-; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                                                               ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                                                             ;         ;
-; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf         ;         ;
-; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_8la.tdf              ;         ;
-; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_11a.tdf              ;         ;
-; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/mux_6hb.tdf                 ;         ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                              ; Library ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------+---------+
+; vga_frame.v                      ; yes             ; User Wizard-Generated File       ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_frame.v                    ;         ;
+; debounce.v                       ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v                     ;         ;
+; vga_driver_memory_double_buf.v   ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v ;         ;
+; vga_driver.v                     ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver.v                   ;         ;
+; image.mif                        ; yes             ; User Memory Initialization File  ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/image.mif                      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                  ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc           ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                     ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                  ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                  ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                   ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                      ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                      ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                    ;         ;
+; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf         ;         ;
+; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/decode_8la.tdf              ;         ;
+; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/decode_11a.tdf              ;         ;
+; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/mux_6hb.tdf                 ;         ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -1517,38 +1519,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Oct 31 11:46:22 2024
+    Info: Processing started: Fri Dec 13 00:50:21 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_driver_memory_double_buf -c vga_driver_memory_double_buf
 Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file vga_frame.v
-    Info (12023): Found entity 1: vga_frame File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 40
-Warning (10229): Verilog HDL Expression warning at debounce.v(47): truncated literal to match 3 bits File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 47
+    Info (12023): Found entity 1: vga_frame File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_frame.v Line: 40
+Warning (10229): Verilog HDL Expression warning at debounce.v(47): truncated literal to match 3 bits File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 47
 Info (12021): Found 2 design units, including 2 entities, in source file debounce.v
-    Info (12023): Found entity 1: debounce_switches File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 1
-    Info (12023): Found entity 2: debounce File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 29
+    Info (12023): Found entity 1: debounce_switches File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 1
+    Info (12023): Found entity 2: debounce File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file vga_driver_memory_double_buf.v
-    Info (12023): Found entity 1: vga_driver_memory_double_buf File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 1
+    Info (12023): Found entity 1: vga_driver_memory_double_buf File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga_driver.v
-    Info (12023): Found entity 1: vga_driver File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver.v Line: 11
+    Info (12023): Found entity 1: vga_driver File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver.v Line: 11
 Info (12127): Elaborating entity "vga_driver_memory_double_buf" for the top level hierarchy
-Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(187): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 187
-Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(256): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 256
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(368): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 368
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(371): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 371
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(380): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 380
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(384): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 384
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(392): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 392
-Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(397): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 397
-Warning (10034): Output port "LEDR" at vga_driver_memory_double_buf.v(55) has no driver File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-Info (12128): Elaborating entity "debounce_switches" for hierarchy "debounce_switches:db" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 112
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce_switches:db|debounce:db0" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 8
-Info (10264): Verilog HDL Case Statement information at debounce.v(59): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 59
-Info (10264): Verilog HDL Case Statement information at debounce.v(95): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 95
-Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:the_vga" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 143
-Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame:vga_memory0" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 335
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
-Info (12130): Elaborated megafunction instantiation "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
-Info (12133): Instantiated megafunction "vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
+Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(187): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 187
+Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(256): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 256
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(368): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 368
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(371): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 371
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(380): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 380
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(384): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 384
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(392): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 392
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(397): truncated value with size 16 to match size of target (15) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 397
+Warning (10034): Output port "LEDR" at vga_driver_memory_double_buf.v(55) has no driver File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+Info (12128): Elaborating entity "debounce_switches" for hierarchy "debounce_switches:db" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 112
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce_switches:db|debounce:db0" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 8
+Info (10264): Verilog HDL Case Statement information at debounce.v(59): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 59
+Info (10264): Verilog HDL Case Statement information at debounce.v(95): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/debounce.v Line: 95
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:the_vga" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 143
+Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame:vga_memory0" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 335
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_frame.v Line: 86
+Info (12130): Elaborated megafunction instantiation "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_frame.v Line: 86
+Info (12133): Instantiated megafunction "vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_frame.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "image.mif"
@@ -1565,81 +1567,81 @@ Info (12133): Instantiated megafunction "vga_frame:vga_memory0|altsyncram:altsyn
     Info (12134): Parameter "width_a" = "24"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1go1.tdf
-    Info (12023): Found entity 1: altsyncram_1go1 File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_1go1 File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_1go1" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_8la.tdf
-    Info (12023): Found entity 1: decode_8la File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_8la.tdf Line: 23
-Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 44
+    Info (12023): Found entity 1: decode_8la File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/decode_8la.tdf Line: 23
+Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_11a.tdf
-    Info (12023): Found entity 1: decode_11a File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_11a.tdf Line: 23
-Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 45
+    Info (12023): Found entity 1: decode_11a File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/decode_11a.tdf Line: 23
+Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 45
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
-    Info (12023): Found entity 1: mux_6hb File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/mux_6hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 46
+    Info (12023): Found entity 1: mux_6hb File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/mux_6hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 46
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 80
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 80
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 315 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg
+Info (144001): Generated suppressed messages file M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[9]" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[8]" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[9]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[8]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
 Info (21057): Implemented 554 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 67 output pins
     Info (21061): Implemented 280 logic cells
     Info (21064): Implemented 192 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 4892 megabytes
-    Info: Processing ended: Thu Oct 31 11:46:33 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Fri Dec 13 00:50:40 2024
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg.
+The suppressed messages can be found in M:/Project/WORKING_COPY_OF_V1/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg.
 
 

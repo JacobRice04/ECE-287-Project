@@ -1,5 +1,5 @@
 Timing Analyzer report for vga_driver_memory_double_buf
-Thu Oct 31 11:48:05 2024
+Fri Dec 13 00:53:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -100,26 +100,26 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 28          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.51        ;
+; Average used               ; 1.26        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   4.3%      ;
-;     Processor 3            ;   3.9%      ;
-;     Processor 4            ;   3.5%      ;
-;     Processor 5            ;   3.3%      ;
-;     Processor 6            ;   3.3%      ;
-;     Processor 7            ;   3.3%      ;
-;     Processor 8            ;   3.3%      ;
-;     Processor 9            ;   3.3%      ;
-;     Processor 10           ;   3.3%      ;
-;     Processor 11           ;   3.3%      ;
-;     Processor 12           ;   3.2%      ;
-;     Processor 13           ;   3.2%      ;
-;     Processor 14           ;   3.2%      ;
-;     Processor 15           ;   3.2%      ;
-;     Processor 16           ;   3.2%      ;
+;     Processor 2            ;   2.3%      ;
+;     Processor 3            ;   2.2%      ;
+;     Processor 4            ;   1.8%      ;
+;     Processor 5            ;   1.7%      ;
+;     Processor 6            ;   1.7%      ;
+;     Processor 7            ;   1.7%      ;
+;     Processor 8            ;   1.6%      ;
+;     Processor 9            ;   1.6%      ;
+;     Processor 10           ;   1.6%      ;
+;     Processor 11           ;   1.6%      ;
+;     Processor 12           ;   1.6%      ;
+;     Processor 13           ;   1.6%      ;
+;     Processor 14           ;   1.6%      ;
+;     Processor 15           ;   1.6%      ;
+;     Processor 16           ;   1.6%      ;
 +----------------------------+-------------+
 
 
@@ -921,7 +921,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Oct 31 11:47:55 2024
+    Info: Processing started: Fri Dec 13 00:52:44 2024
 Info: Command: quartus_sta vga_driver_memory_double_buf -c vga_driver_memory_double_buf
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
@@ -1012,9 +1012,9 @@ Info (332146): Worst-case minimum pulse width slack is -2.174
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5357 megabytes
-    Info: Processing ended: Thu Oct 31 11:48:05 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 5349 megabytes
+    Info: Processing ended: Fri Dec 13 00:53:02 2024
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:04
 
 
