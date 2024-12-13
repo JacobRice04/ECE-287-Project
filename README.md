@@ -21,7 +21,7 @@ Professor: Dr. Peter Jamieson
   In the current state, our design is not functional and has yet to be completed. We conservatively estimate that if someone were to pick this up in its current state, it would take ~25-30 hours to implement a rudimentary version of the Space Invaders game. The outline of what our design would've incorporated gives a rough outline of what is to be completed in order to get this in working order. The first step would be getting the square drawing module to work. 
 # Current State
 ![image1 (6)](https://github.com/user-attachments/assets/ad49c1ee-c407-447b-8ad9-a6fa63488414)
-This is an image of the current state that our project sits in. So far, we have written a white background over the provided MIF file included in the VGA from Dr. Jamieson. 
+This is an image of the current state that our project sits in. So far, we have written a white background over the provided MIF file included in the VGA from Dr. Jamieson. The current vga_driver_to_frame.v holds two main modules where we have done our work. The main top module is where the vga assigmnets are done. From tehre, a start signal is sent high to the square drawing module, which is supposed to intake the width, height, and x-y coordinates to draw a square and reports back to the top module with a done signal when it is finished. 
 # Works Referenced
 VGA Module Credit - Dr. Peter Jamieson (Miami University), created October 31st, 2024 
 http://www.drpeterjamieson.com/
