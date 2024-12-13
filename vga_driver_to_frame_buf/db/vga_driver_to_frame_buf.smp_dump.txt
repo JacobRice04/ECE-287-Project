@@ -1,18 +1,20 @@
 
 State Machine - |vga_driver_to_frame_buf|current_state
-Name current_state.DRAW_SQUARE current_state.DRAW_RESET current_state.FILL_WHITE current_state.INIT current_state.DONE 
-current_state.INIT 0 0 0 0 0 
-current_state.FILL_WHITE 0 0 1 1 0 
-current_state.DRAW_RESET 0 1 0 1 0 
-current_state.DRAW_SQUARE 1 0 0 1 0 
-current_state.DONE 0 0 0 1 1 
+Name current_state.DONE current_state.DRAW_SQUARE current_state.DRAW_RESET current_state.DRAW_WAIT current_state.FILL_WHITE current_state.INIT 
+current_state.INIT 0 0 0 0 0 0 
+current_state.FILL_WHITE 0 0 0 0 1 1 
+current_state.DRAW_WAIT 0 0 0 1 0 1 
+current_state.DRAW_RESET 0 0 1 0 0 1 
+current_state.DRAW_SQUARE 0 1 0 0 0 1 
+current_state.DONE 1 0 0 0 0 1 
 
-State Machine - |vga_driver_to_frame_buf|square_drawer:drawmysquare|state
-Name state.FINISHED state.DRAWING state.START_DRAW state.IDLE 
-state.IDLE 0 0 0 0 
-state.START_DRAW 0 0 1 1 
-state.DRAWING 0 1 0 1 
-state.FINISHED 1 0 0 1 
+State Machine - |vga_driver_to_frame_buf|rectangle_drawer:draw|current_state
+Name current_state.WRITE_BUFFER current_state.SETUP_PIXEL current_state.INIT current_state.IDLE current_state.FINISHED 
+current_state.IDLE 0 0 0 0 0 
+current_state.INIT 0 0 1 1 0 
+current_state.SETUP_PIXEL 0 1 0 1 0 
+current_state.WRITE_BUFFER 1 0 0 1 0 
+current_state.FINISHED 0 0 0 1 1 
 
 State Machine - |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|wr_id
 Name wr_id.MEM_INIT_WRITE wr_id.MEM_M0_WRITE_M1_READ wr_id.MEM_M0_READ_M1_WRITE 

@@ -195,9 +195,10 @@ reg [6:0] current_state, next_state;
 parameter 
     INIT            = 4'd0,
     FILL_WHITE      = 4'd1,
-	 DRAW_RESET      = 4'd2,
-    DRAW_SQUARE     = 4'd3,
-    DONE            = 4'd4;
+	 DRAW_WAIT       = 4'd2,
+	 DRAW_RESET      = 4'd3,
+    DRAW_SQUARE     = 4'd4,
+    DONE            = 4'd5;
 
 // State Register
 always @(posedge clk or negedge rst)
@@ -221,10 +222,10 @@ begin
         
         FILL_WHITE:
             if (idx_location >= MEMORY_SIZE)
-                next_state = DRAW_RESET;
+                next_state = DRAW_WAIT;
             else 
                 next_state = FILL_WHITE;
-       
+        DRAW_WAIT : next_state = DRAW_RESET;
         DRAW_RESET: 
             next_state = DRAW_SQUARE;
         
@@ -246,27 +247,26 @@ reg [0:0]square_start;
 wire [0:0]square_done;
 reg [19:0]square_width;
 reg [19:0]square_height;
-reg [19:0]x_start;
-reg [19:0]y_start;
+reg [8:0]x_start;
+reg [8:0]y_start;
 reg [23:0]color;
 wire [14:0]address;
-wire [23:0]data;
-wire [0:0]writepixel;
-reg [19:0]pixel;
-reg [14:0] square_draw_count;
+wire write_en;
 // Output Logic
 
 
-parameter SCREEN_WIDTH = 16'd640;
-parameter SCREEN_HEIGHT = 16'd480;
-parameter DEFAULT_SQUARE_SIZE = 16'd200;
+parameter SCREEN_WIDTH = 16'd160; // was set at 640
+parameter SCREEN_HEIGHT = 16'd120; // was at 480
+parameter DEFAULT_SQUARE_SIZE = 16'd50;
 
-square_drawer drawmysquare(clk, rst, square_height, square_width, square_start, pixel, color, address, data,
-					 writepixel, square_done);
+//square_drawer drawmysquare(clk, rst, square_height, square_width, square_start, pixel, color, address, data,
+					 //writepixel, square_done);
+					 
+rectangle_drawer draw(clk, rst, square_start, square_width, square_height, x_start, y_start, color, address, write_en, square_done);
 
-assign the_vga_draw_fram_write_mem_address = address;
-assign the_vga_draw_fram_write_mem_data = data;
-assign the_vga_draw_fram_write_a_pixel = writepixel;
+//assign the_vga_draw_fram_write_mem_address = address;
+//assign the_vga_draw_fram_write_mem_data = data;
+//assign the_vga_draw_fram_write_a_pixel = writepixel;
 
 always @(posedge clk or negedge rst)
 begin
@@ -300,31 +300,28 @@ begin
                 idx_location <= idx_location + 1'b1;
             end 
             
+				DRAW_WAIT:
+				
             DRAW_RESET: 
-            begin
-                // Prepare for square drawing
-                square_width <= 20'd200 / PIXEL_VIRTUAL_SIZE;  // Adjust for virtual pixel size
-                square_height <= 20'd200 / PIXEL_VIRTUAL_SIZE;
-                x_start <= (VIRTUAL_PIXEL_WIDTH - square_width) / 2;  // Centered x
-                y_start <= (VIRTUAL_PIXEL_HEIGHT - square_height) / 2;  // Centered y
-                color <= 24'hFF0000; // Red color
-                square_start <= 1'b1;
-                square_draw_count <= 0;
-            end
-            
-            DRAW_SQUARE:
-            begin
-                // Ensure square drawing is triggered
-                pixel <= x_start * VIRTUAL_PIXEL_WIDTH + y_start;
-                square_start <= 1'b1;
+				begin
+					square_height <= 20'd5;    // Just 5 pixels tall
+					square_width <= 20'd5;     // and 5 pixels wide
+					x_start <= 8'd0;          // Start at the very top-left
+					y_start <= 8'd0;
+					square_start <= 1'b1;
+				end
+
+				DRAW_SQUARE: begin
+					// Connect rectangle drawer outputs to frame buffer inputs
+					the_vga_draw_frame_write_mem_address <= address;
+					the_vga_draw_frame_write_mem_data <= color;  // Use the color input from rectangle_drawer
+					the_vga_draw_frame_write_a_pixel <= write_en;
                 
-                // Safety mechanism to prevent infinite drawing
-                if (square_done)
-                begin
-                    square_start <= 1'b0;
-                    square_draw_count <= square_draw_count + 1;
-                end
-            end
+					if (square_done)
+					begin
+						square_start <= 1'b0;
+					end
+				end
             
             DONE:
             begin
@@ -336,7 +333,161 @@ begin
 end
 endmodule
 
-module square_drawer(
+module rectangle_drawer(
+    input clk,
+    input rst,
+    input start,
+    input [7:0]width,      // Rectangle width
+    input [7:0]height,     // Rectangle height
+    input [7:0]start_x,    // Starting X position
+    input [7:0]start_y,    // Starting Y position
+    input [23:0]color,
+	 output reg [14:0]address,
+	 output reg write_en,// Rectangle color
+    output reg done
+);
+
+    // State definitions
+    localparam IDLE = 3'd0;
+    localparam INIT = 3'd1;
+    localparam SETUP_PIXEL = 3'd2;
+    localparam WRITE_BUFFER = 3'd3;
+    localparam FINISHED = 3'd4;
+
+    // Screen parameters
+    localparam SCREEN_WIDTH = 160;
+    localparam SCREEN_HEIGHT = 120;
+    
+    // State and counter registers
+    reg [2:0] current_state;
+    reg [7:0] x_counter;
+    reg [7:0] y_counter;
+
+    // Bounds checking
+    wire [7:0] end_x = start_x + width;
+    wire [7:0] end_y = start_y + height;
+    wire x_valid = (end_x <= SCREEN_WIDTH);
+    wire y_valid = (end_y <= SCREEN_HEIGHT);
+
+    // Next state logic
+    always @(posedge clk or negedge rst) begin
+        if (!rst) begin
+            current_state <= IDLE;
+            x_counter <= 0;
+            y_counter <= 0;
+            address <= 0;
+            write_en <= 0;
+            done <= 0;
+        end
+        else begin
+            case (current_state)
+                IDLE: begin
+                    if (start && x_valid && y_valid) begin
+                        current_state <= INIT;
+                        done <= 0;
+                    end
+                    else if (start) begin
+                        // If dimensions are invalid, signal done without drawing
+                        done <= 1'b1;
+                        current_state <= IDLE;
+                    end
+                end
+
+                INIT: begin
+                    x_counter <= 0;
+                    y_counter <= 0;
+                    write_en <= 0;
+                    current_state <= SETUP_PIXEL;
+                end
+
+                SETUP_PIXEL: begin
+                    // Setup the address and data for the next pixel
+                    //address <= (start_y + y_counter) + ((start_x + x_counter) * SCREEN_HEIGHT);
+                    address <= 200;
+                    write_en <= 1'b1;
+                    current_state <= WRITE_BUFFER;
+                end
+
+                WRITE_BUFFER: begin
+                    // Wait one clock cycle for memory write
+                    write_en <= 1'b0;
+                    // Update counters and determine next state
+                    if (x_counter < width - 1) begin
+                        x_counter <= x_counter + 1;
+                        current_state <= SETUP_PIXEL;
+                    end
+                    else begin
+                        x_counter <= 0;
+                        if (y_counter < height - 1) begin
+                            y_counter <= y_counter + 1;
+                            current_state <= SETUP_PIXEL;
+                        end
+                        else begin
+                            current_state <= FINISHED;
+                        end
+                    end
+                end
+
+                FINISHED: begin
+                    done <= 1'b1;
+                    write_en <= 1'b0;
+                    current_state <= IDLE;
+                end
+
+                default: current_state <= IDLE;
+            endcase
+        end
+    end
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*module drawer(input clk, input rst, input start, input color, input height, input width, input location, output reg drawer_done);
+	reg [4:0]S;
+	reg [4:0]NS;
+	
+	always@(posedge clk or negedge rst) begin
+		if (rst == 1'b0) begin
+			the_vga_draw_frame_write_a_pixel <= 1'b0;
+			drawer_done <= 1'b0;
+			S <= START;
+		end else begin
+			S <= NS;
+		end
+	end
+	
+	always@(posedge clk or negedge rst) begin
+		
+		case(S)
+			f
+	
+	end
+
+
+
+endmodule*/
+
+
+
+
+
+
+
+
+
+/*module square_drawer(
     input clk, 
     input rst, 
     input [19:0] height, 
@@ -418,4 +569,4 @@ module square_drawer(
             endcase
         end
     end
-endmodule
+endmodule*/

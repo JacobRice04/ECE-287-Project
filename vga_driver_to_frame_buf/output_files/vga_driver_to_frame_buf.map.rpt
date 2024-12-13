@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_driver_to_frame_buf
-Thu Dec 12 19:21:52 2024
+Thu Dec 12 21:55:58 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -15,7 +15,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. State Machine - |vga_driver_to_frame_buf|current_state
- 10. State Machine - |vga_driver_to_frame_buf|square_drawer:drawmysquare|state
+ 10. State Machine - |vga_driver_to_frame_buf|rectangle_drawer:draw|current_state
  11. State Machine - |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|wr_id
  12. State Machine - |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|S
  13. State Machine - |vga_driver_to_frame_buf|debounce_switches:db|debounce:db19|S
@@ -67,18 +67,17 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  59. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component
  60. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component
  61. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_driver:the_vga
- 62. Parameter Settings for User Entity Instance: square_drawer:drawmysquare
- 63. altsyncram Parameter Settings by Entity Instance
- 64. Port Connectivity Checks: "square_drawer:drawmysquare"
- 65. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame"
- 66. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory1"
- 67. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0"
- 68. Port Connectivity Checks: "vga_frame_driver:my_frame_driver"
- 69. Port Connectivity Checks: "debounce_switches:db"
- 70. Post-Synthesis Netlist Statistics for Top Partition
- 71. Elapsed Time Per Partition
- 72. Analysis & Synthesis Messages
- 73. Analysis & Synthesis Suppressed Messages
+ 62. altsyncram Parameter Settings by Entity Instance
+ 63. Port Connectivity Checks: "rectangle_drawer:draw"
+ 64. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame"
+ 65. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory1"
+ 66. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0"
+ 67. Port Connectivity Checks: "vga_frame_driver:my_frame_driver"
+ 68. Port Connectivity Checks: "debounce_switches:db"
+ 69. Post-Synthesis Netlist Statistics for Top Partition
+ 70. Elapsed Time Per Partition
+ 71. Analysis & Synthesis Messages
+ 72. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -105,13 +104,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec 12 19:21:52 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec 12 21:55:57 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; vga_driver_to_frame_buf                        ;
 ; Top-level Entity Name           ; vga_driver_to_frame_buf                        ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 174                                            ;
+; Total registers                 ; 151                                            ;
 ; Total pins                      ; 82                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 2,359,296                                      ;
@@ -229,36 +228,35 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processors 6-16        ;   0.0%      ;
+;     Processors 5-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                             ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------+---------+
-; vga_frame_driver.v               ; yes             ; User Verilog HDL File            ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v        ;         ;
-; vga_frame.v                      ; yes             ; User Wizard-Generated File       ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame.v               ;         ;
-; debounce.v                       ; yes             ; User Verilog HDL File            ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v                ;         ;
-; vga_driver_to_frame_buf.v        ; yes             ; User Verilog HDL File            ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v ;         ;
-; vga_driver.v                     ; yes             ; User Verilog HDL File            ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver.v              ;         ;
-; image.mif                        ; yes             ; User Memory Initialization File  ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/image.mif                 ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc         ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
-; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc             ;         ;
-; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc             ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc           ;         ;
-; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf    ;         ;
-; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/decode_8la.tdf         ;         ;
-; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/decode_11a.tdf         ;         ;
-; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/mux_6hb.tdf            ;         ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------+---------+
+; vga_frame_driver.v               ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v        ;         ;
+; vga_frame.v                      ; yes             ; User Wizard-Generated File       ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame.v               ;         ;
+; debounce.v                       ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v                ;         ;
+; vga_driver_to_frame_buf.v        ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v ;         ;
+; vga_driver.v                     ; yes             ; User Verilog HDL File            ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver.v              ;         ;
+; image.mif                        ; yes             ; User Memory Initialization File  ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/image.mif                 ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf    ;         ;
+; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/decode_8la.tdf         ;         ;
+; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/decode_11a.tdf         ;         ;
+; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/mux_6hb.tdf            ;         ;
++----------------------------------+-----------------+----------------------------------+---------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -266,16 +264,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 267            ;
+; Estimate of Logic utilization (ALMs needed) ; 242            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 419            ;
+; Combinational ALUT usage for logic          ; 383            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 92             ;
-;     -- 5 input functions                    ; 51             ;
-;     -- 4 input functions                    ; 23             ;
-;     -- <=3 input functions                  ; 253            ;
+;     -- 6 input functions                    ; 94             ;
+;     -- 5 input functions                    ; 46             ;
+;     -- 4 input functions                    ; 26             ;
+;     -- <=3 input functions                  ; 217            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 174            ;
+; Dedicated logic registers                   ; 151            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 82             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -284,9 +282,9 @@ https://fpgasoftware.intel.com/eula.
 ; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 462            ;
-; Total fan-out                               ; 7290           ;
-; Average fan-out                             ; 6.98           ;
+; Maximum fan-out                             ; 439            ;
+; Total fan-out                               ; 7065           ;
+; Average fan-out                             ; 7.17           ;
 +---------------------------------------------+----------------+
 
 
@@ -295,8 +293,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                          ; Entity Name             ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |vga_driver_to_frame_buf                     ; 419 (56)            ; 174 (38)                  ; 2359296           ; 0          ; 82   ; 0            ; |vga_driver_to_frame_buf                                                                                                                                                     ; vga_driver_to_frame_buf ; work         ;
-;    |square_drawer:drawmysquare|              ; 73 (73)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_to_frame_buf|square_drawer:drawmysquare                                                                                                                          ; square_drawer           ; work         ;
+; |vga_driver_to_frame_buf                     ; 383 (58)            ; 151 (39)                  ; 2359296           ; 0          ; 82   ; 0            ; |vga_driver_to_frame_buf                                                                                                                                                     ; vga_driver_to_frame_buf ; work         ;
+;    |rectangle_drawer:draw|                   ; 35 (35)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_to_frame_buf|rectangle_drawer:draw                                                                                                                               ; rectangle_drawer        ; work         ;
 ;    |vga_frame_driver:my_frame_driver|        ; 290 (204)           ; 88 (61)                   ; 2359296           ; 0          ; 0    ; 0            ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver                                                                                                                    ; vga_frame_driver        ; work         ;
 ;       |vga_driver:the_vga|                   ; 38 (38)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|vga_driver:the_vga                                                                                                 ; vga_driver              ; work         ;
 ;       |vga_frame:the_vga_draw_frame|         ; 32 (0)              ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame                                                                                       ; vga_frame               ; work         ;
@@ -331,30 +329,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |vga_driver_to_frame_buf|current_state                                                                                                ;
-+---------------------------+---------------------------+--------------------------+--------------------------+--------------------+--------------------+
-; Name                      ; current_state.DRAW_SQUARE ; current_state.DRAW_RESET ; current_state.FILL_WHITE ; current_state.INIT ; current_state.DONE ;
-+---------------------------+---------------------------+--------------------------+--------------------------+--------------------+--------------------+
-; current_state.INIT        ; 0                         ; 0                        ; 0                        ; 0                  ; 0                  ;
-; current_state.FILL_WHITE  ; 0                         ; 0                        ; 1                        ; 1                  ; 0                  ;
-; current_state.DRAW_RESET  ; 0                         ; 1                        ; 0                        ; 1                  ; 0                  ;
-; current_state.DRAW_SQUARE ; 1                         ; 0                        ; 0                        ; 1                  ; 0                  ;
-; current_state.DONE        ; 0                         ; 0                        ; 0                        ; 1                  ; 1                  ;
-+---------------------------+---------------------------+--------------------------+--------------------------+--------------------+--------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_to_frame_buf|current_state                                                                                                                          ;
++---------------------------+--------------------+---------------------------+--------------------------+-------------------------+--------------------------+--------------------+
+; Name                      ; current_state.DONE ; current_state.DRAW_SQUARE ; current_state.DRAW_RESET ; current_state.DRAW_WAIT ; current_state.FILL_WHITE ; current_state.INIT ;
++---------------------------+--------------------+---------------------------+--------------------------+-------------------------+--------------------------+--------------------+
+; current_state.INIT        ; 0                  ; 0                         ; 0                        ; 0                       ; 0                        ; 0                  ;
+; current_state.FILL_WHITE  ; 0                  ; 0                         ; 0                        ; 0                       ; 1                        ; 1                  ;
+; current_state.DRAW_WAIT   ; 0                  ; 0                         ; 0                        ; 1                       ; 0                        ; 1                  ;
+; current_state.DRAW_RESET  ; 0                  ; 0                         ; 1                        ; 0                       ; 0                        ; 1                  ;
+; current_state.DRAW_SQUARE ; 0                  ; 1                         ; 0                        ; 0                       ; 0                        ; 1                  ;
+; current_state.DONE        ; 1                  ; 0                         ; 0                        ; 0                       ; 0                        ; 1                  ;
++---------------------------+--------------------+---------------------------+--------------------------+-------------------------+--------------------------+--------------------+
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------+
-; State Machine - |vga_driver_to_frame_buf|square_drawer:drawmysquare|state         ;
-+------------------+----------------+---------------+------------------+------------+
-; Name             ; state.FINISHED ; state.DRAWING ; state.START_DRAW ; state.IDLE ;
-+------------------+----------------+---------------+------------------+------------+
-; state.IDLE       ; 0              ; 0             ; 0                ; 0          ;
-; state.START_DRAW ; 0              ; 0             ; 1                ; 1          ;
-; state.DRAWING    ; 0              ; 1             ; 0                ; 1          ;
-; state.FINISHED   ; 1              ; 0             ; 0                ; 1          ;
-+------------------+----------------+---------------+------------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_to_frame_buf|rectangle_drawer:draw|current_state                                                                           ;
++----------------------------+----------------------------+---------------------------+--------------------+--------------------+------------------------+
+; Name                       ; current_state.WRITE_BUFFER ; current_state.SETUP_PIXEL ; current_state.INIT ; current_state.IDLE ; current_state.FINISHED ;
++----------------------------+----------------------------+---------------------------+--------------------+--------------------+------------------------+
+; current_state.IDLE         ; 0                          ; 0                         ; 0                  ; 0                  ; 0                      ;
+; current_state.INIT         ; 0                          ; 0                         ; 1                  ; 1                  ; 0                      ;
+; current_state.SETUP_PIXEL  ; 0                          ; 1                         ; 0                  ; 1                  ; 0                      ;
+; current_state.WRITE_BUFFER ; 1                          ; 0                         ; 0                  ; 1                  ; 0                      ;
+; current_state.FINISHED     ; 0                          ; 0                         ; 0                  ; 1                  ; 1                      ;
++----------------------------+----------------------------+---------------------------+--------------------+--------------------+------------------------+
 
 
 Encoding Type:  One-Hot
@@ -659,20 +659,19 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------+--------------------------------------------------+
 ; Register name                                         ; Reason for Removal                               ;
 +-------------------------------------------------------+--------------------------------------------------+
-; square_width[6..19]                                   ; Stuck at GND due to stuck port data_in           ;
-; square_width[4,5]                                     ; Stuck at VCC due to stuck port data_in           ;
-; square_width[2,3]                                     ; Stuck at GND due to stuck port data_in           ;
-; square_width[1]                                       ; Stuck at VCC due to stuck port data_in           ;
-; square_width[0]                                       ; Stuck at GND due to stuck port data_in           ;
-; square_height[6..19]                                  ; Stuck at GND due to stuck port data_in           ;
-; square_height[4,5]                                    ; Stuck at VCC due to stuck port data_in           ;
-; square_height[2,3]                                    ; Stuck at GND due to stuck port data_in           ;
-; square_height[1]                                      ; Stuck at VCC due to stuck port data_in           ;
-; square_height[0]                                      ; Stuck at GND due to stuck port data_in           ;
-; square_drawer:drawmysquare|max_x[0,2,3,6..20]         ; Stuck at GND due to stuck port data_in           ;
-; square_drawer:drawmysquare|max_y[0,2,3,6..20]         ; Stuck at GND due to stuck port data_in           ;
-; square_drawer:drawmysquare|max_x[4,5]                 ; Merged with square_drawer:drawmysquare|max_x[1]  ;
-; square_drawer:drawmysquare|max_y[1,4,5]               ; Merged with square_drawer:drawmysquare|max_x[1]  ;
+; rectangle_drawer:draw|address[0..2,4,5,8..14]         ; Stuck at GND due to stuck port data_in           ;
+; square_height[3..7]                                   ; Stuck at GND due to stuck port data_in           ;
+; square_height[2]                                      ; Stuck at VCC due to stuck port data_in           ;
+; square_height[1]                                      ; Stuck at GND due to stuck port data_in           ;
+; square_height[0]                                      ; Stuck at VCC due to stuck port data_in           ;
+; square_width[3..7]                                    ; Stuck at GND due to stuck port data_in           ;
+; square_width[2]                                       ; Stuck at VCC due to stuck port data_in           ;
+; square_width[1]                                       ; Stuck at GND due to stuck port data_in           ;
+; square_width[0]                                       ; Stuck at VCC due to stuck port data_in           ;
+; x_start[0..7]                                         ; Stuck at GND due to stuck port data_in           ;
+; y_start[0..7]                                         ; Stuck at GND due to stuck port data_in           ;
+; rectangle_drawer:draw|address[3]                      ; Merged with rectangle_drawer:draw|address[6]     ;
+; rectangle_drawer:draw|address[6]                      ; Merged with rectangle_drawer:draw|address[7]     ;
 ; the_vga_draw_frame_write_mem_data[1..23]              ; Merged with the_vga_draw_frame_write_mem_data[0] ;
 ; debounce_switches:db|debounce:db19|S.MAYBE_ONE        ; Lost fanout                                      ;
 ; debounce_switches:db|debounce:db18|S.MAYBE_ONE        ; Lost fanout                                      ;
@@ -700,13 +699,13 @@ Encoding Type:  One-Hot
 ; debounce_switches:db|debounce:db12|S.ZERO             ; Lost fanout                                      ;
 ; current_state~4                                       ; Lost fanout                                      ;
 ; current_state~5                                       ; Lost fanout                                      ;
+; current_state~6                                       ; Lost fanout                                      ;
 ; current_state~7                                       ; Lost fanout                                      ;
 ; current_state~8                                       ; Lost fanout                                      ;
 ; current_state~9                                       ; Lost fanout                                      ;
 ; current_state~10                                      ; Lost fanout                                      ;
-; square_drawer:drawmysquare|state~8                    ; Lost fanout                                      ;
-; square_drawer:drawmysquare|state~9                    ; Lost fanout                                      ;
-; square_drawer:drawmysquare|state~10                   ; Lost fanout                                      ;
+; rectangle_drawer:draw|current_state~9                 ; Lost fanout                                      ;
+; rectangle_drawer:draw|current_state~10                ; Lost fanout                                      ;
 ; vga_frame_driver:my_frame_driver|S~4                  ; Lost fanout                                      ;
 ; vga_frame_driver:my_frame_driver|S~5                  ; Lost fanout                                      ;
 ; vga_frame_driver:my_frame_driver|S~8                  ; Lost fanout                                      ;
@@ -872,164 +871,96 @@ Encoding Type:  One-Hot
 ; debounce_switches:db|debounce:db0|S.ERROR             ; Lost fanout                                      ;
 ; vga_frame_driver:my_frame_driver|S.START              ; Merged with current_state.INIT                   ;
 ; vga_frame_driver:my_frame_driver|S.ERROR              ; Stuck at GND due to stuck port data_in           ;
-; Total Number of Removed Registers = 428               ;                                                  ;
+; Total Number of Removed Registers = 393               ;                                                  ;
 +-------------------------------------------------------+--------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                ;
-+---------------------------------------------+---------------------------+--------------------------------------------------+
-; Register name                               ; Reason for Removal        ; Registers Removed due to This Register           ;
-+---------------------------------------------+---------------------------+--------------------------------------------------+
-; debounce_switches:db|debounce:db19|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db19|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db19|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db19|S.ERROR       ;
-; debounce_switches:db|debounce:db18|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db18|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db18|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db18|S.ERROR       ;
-; debounce_switches:db|debounce:db17|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db17|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db17|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db17|S.ERROR       ;
-; debounce_switches:db|debounce:db16|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db16|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db16|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db16|S.ERROR       ;
-; debounce_switches:db|debounce:db15|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db15|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db15|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db15|S.ERROR       ;
-; debounce_switches:db|debounce:db14|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db14|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db14|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db14|S.ERROR       ;
-; debounce_switches:db|debounce:db13|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db13|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db13|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db13|S.ERROR       ;
-; debounce_switches:db|debounce:db12|S.ZERO   ; Lost Fanouts              ; debounce_switches:db|debounce:db12|S.ONE,        ;
-;                                             ;                           ; debounce_switches:db|debounce:db12|S.MAYBE_ZERO, ;
-;                                             ;                           ; debounce_switches:db|debounce:db12|S.ERROR       ;
-; debounce_switches:db|debounce:db19|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db19|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db19|count[7]      ;
-; debounce_switches:db|debounce:db18|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db18|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db18|count[7]      ;
-; debounce_switches:db|debounce:db17|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db17|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db17|count[7]      ;
-; debounce_switches:db|debounce:db16|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db16|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db16|count[7]      ;
-; debounce_switches:db|debounce:db15|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db15|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db15|count[7]      ;
-; debounce_switches:db|debounce:db14|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db14|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db14|count[7]      ;
-; debounce_switches:db|debounce:db13|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db13|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db13|count[7]      ;
-; debounce_switches:db|debounce:db12|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db12|count[6],     ;
-;                                             ;                           ; debounce_switches:db|debounce:db12|count[7]      ;
-; square_width[15]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[15]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[14]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[14]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[13]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[13]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[12]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[12]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[11]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[11]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[10]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[10]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[9]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[9]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[7]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[7]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[6]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[6]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[3]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[3]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[2]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[2]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[0]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[0]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[19]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[19]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[18]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[18]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[17]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[17]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[16]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[16]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[15]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[15]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[14]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[14]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[13]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[13]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[12]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[12]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[11]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[11]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[10]                           ; Stuck at GND              ; square_drawer:drawmysquare|max_y[10]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[9]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[9]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[8]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[8]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[7]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[7]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[6]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[6]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[3]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[3]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[2]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[2]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_height[0]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_y[0]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[8]                             ; Stuck at GND              ; square_drawer:drawmysquare|max_x[8]              ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[19]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[19]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[18]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[18]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[17]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[17]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; square_width[16]                            ; Stuck at GND              ; square_drawer:drawmysquare|max_x[16]             ;
-;                                             ; due to stuck port data_in ;                                                  ;
-; debounce_switches:db|debounce:db11|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db11|S.ERROR       ;
-; debounce_switches:db|debounce:db11|S~5      ; Lost Fanouts              ; debounce_switches:db|debounce:db11|S.ZERO        ;
-; debounce_switches:db|debounce:db11|S~6      ; Lost Fanouts              ; debounce_switches:db|debounce:db11|S.ONE         ;
-; debounce_switches:db|debounce:db10|S~4      ; Lost Fanouts              ; debounce_switches:db|debounce:db10|S.ERROR       ;
-; debounce_switches:db|debounce:db10|S~5      ; Lost Fanouts              ; debounce_switches:db|debounce:db10|S.ZERO        ;
-; debounce_switches:db|debounce:db10|S~6      ; Lost Fanouts              ; debounce_switches:db|debounce:db10|S.ONE         ;
-; debounce_switches:db|debounce:db7|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db7|S.ERROR        ;
-; debounce_switches:db|debounce:db7|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db7|S.ZERO         ;
-; debounce_switches:db|debounce:db7|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db7|S.ONE          ;
-; debounce_switches:db|debounce:db6|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db6|S.ERROR        ;
-; debounce_switches:db|debounce:db6|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db6|S.ZERO         ;
-; debounce_switches:db|debounce:db6|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db6|S.ONE          ;
-; debounce_switches:db|debounce:db5|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db5|S.ERROR        ;
-; debounce_switches:db|debounce:db5|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db5|S.ZERO         ;
-; debounce_switches:db|debounce:db5|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db5|S.ONE          ;
-; debounce_switches:db|debounce:db4|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db4|S.ERROR        ;
-; debounce_switches:db|debounce:db4|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db4|S.ZERO         ;
-; debounce_switches:db|debounce:db4|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db4|S.ONE          ;
-; debounce_switches:db|debounce:db3|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db3|S.ERROR        ;
-; debounce_switches:db|debounce:db3|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db3|S.ZERO         ;
-; debounce_switches:db|debounce:db3|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db3|S.ONE          ;
-; debounce_switches:db|debounce:db2|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db2|S.ERROR        ;
-; debounce_switches:db|debounce:db2|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db2|S.ZERO         ;
-; debounce_switches:db|debounce:db2|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db2|S.ONE          ;
-; debounce_switches:db|debounce:db1|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db1|S.ERROR        ;
-; debounce_switches:db|debounce:db1|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db1|S.ZERO         ;
-; debounce_switches:db|debounce:db1|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db1|S.ONE          ;
-; debounce_switches:db|debounce:db0|S~4       ; Lost Fanouts              ; debounce_switches:db|debounce:db0|S.ERROR        ;
-; debounce_switches:db|debounce:db0|S~5       ; Lost Fanouts              ; debounce_switches:db|debounce:db0|S.ZERO         ;
-; debounce_switches:db|debounce:db0|S~6       ; Lost Fanouts              ; debounce_switches:db|debounce:db0|S.ONE          ;
-; debounce_switches:db|debounce:db11|count[0] ; Lost Fanouts              ; debounce_switches:db|debounce:db11|S.START       ;
-; debounce_switches:db|debounce:db10|count[0] ; Lost Fanouts              ; debounce_switches:db|debounce:db10|S.START       ;
-; debounce_switches:db|debounce:db7|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db7|S.START        ;
-; debounce_switches:db|debounce:db6|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db6|S.START        ;
-; debounce_switches:db|debounce:db5|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db5|S.START        ;
-; debounce_switches:db|debounce:db4|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db4|S.START        ;
-; debounce_switches:db|debounce:db3|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db3|S.START        ;
-; debounce_switches:db|debounce:db2|count[0]  ; Lost Fanouts              ; debounce_switches:db|debounce:db2|S.START        ;
-; debounce_switches:db|debounce:db1|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db1|S.START        ;
-; debounce_switches:db|debounce:db0|count[1]  ; Lost Fanouts              ; debounce_switches:db|debounce:db0|S.START        ;
-+---------------------------------------------+---------------------------+--------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++---------------------------------------------+--------------------+--------------------------------------------------+
+; Register name                               ; Reason for Removal ; Registers Removed due to This Register           ;
++---------------------------------------------+--------------------+--------------------------------------------------+
+; debounce_switches:db|debounce:db19|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db19|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|S.ERROR       ;
+; debounce_switches:db|debounce:db18|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db18|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|S.ERROR       ;
+; debounce_switches:db|debounce:db17|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db17|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|S.ERROR       ;
+; debounce_switches:db|debounce:db16|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db16|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|S.ERROR       ;
+; debounce_switches:db|debounce:db15|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db15|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|S.ERROR       ;
+; debounce_switches:db|debounce:db14|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db14|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|S.ERROR       ;
+; debounce_switches:db|debounce:db13|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db13|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|S.ERROR       ;
+; debounce_switches:db|debounce:db12|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db12|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|S.ERROR       ;
+; debounce_switches:db|debounce:db19|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db19|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|count[7]      ;
+; debounce_switches:db|debounce:db18|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db18|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|count[7]      ;
+; debounce_switches:db|debounce:db17|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db17|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|count[7]      ;
+; debounce_switches:db|debounce:db16|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db16|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|count[7]      ;
+; debounce_switches:db|debounce:db15|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db15|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|count[7]      ;
+; debounce_switches:db|debounce:db14|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db14|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|count[7]      ;
+; debounce_switches:db|debounce:db13|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db13|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|count[7]      ;
+; debounce_switches:db|debounce:db12|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db12|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|count[7]      ;
+; debounce_switches:db|debounce:db11|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ERROR       ;
+; debounce_switches:db|debounce:db11|S~5      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ZERO        ;
+; debounce_switches:db|debounce:db11|S~6      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ONE         ;
+; debounce_switches:db|debounce:db10|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ERROR       ;
+; debounce_switches:db|debounce:db10|S~5      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ZERO        ;
+; debounce_switches:db|debounce:db10|S~6      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ONE         ;
+; debounce_switches:db|debounce:db7|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ERROR        ;
+; debounce_switches:db|debounce:db7|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ZERO         ;
+; debounce_switches:db|debounce:db7|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ONE          ;
+; debounce_switches:db|debounce:db6|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ERROR        ;
+; debounce_switches:db|debounce:db6|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ZERO         ;
+; debounce_switches:db|debounce:db6|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ONE          ;
+; debounce_switches:db|debounce:db5|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ERROR        ;
+; debounce_switches:db|debounce:db5|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ZERO         ;
+; debounce_switches:db|debounce:db5|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ONE          ;
+; debounce_switches:db|debounce:db4|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ERROR        ;
+; debounce_switches:db|debounce:db4|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ZERO         ;
+; debounce_switches:db|debounce:db4|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ONE          ;
+; debounce_switches:db|debounce:db3|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ERROR        ;
+; debounce_switches:db|debounce:db3|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ZERO         ;
+; debounce_switches:db|debounce:db3|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ONE          ;
+; debounce_switches:db|debounce:db2|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ERROR        ;
+; debounce_switches:db|debounce:db2|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ZERO         ;
+; debounce_switches:db|debounce:db2|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ONE          ;
+; debounce_switches:db|debounce:db1|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ERROR        ;
+; debounce_switches:db|debounce:db1|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ZERO         ;
+; debounce_switches:db|debounce:db1|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ONE          ;
+; debounce_switches:db|debounce:db0|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ERROR        ;
+; debounce_switches:db|debounce:db0|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ZERO         ;
+; debounce_switches:db|debounce:db0|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ONE          ;
+; debounce_switches:db|debounce:db11|count[0] ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.START       ;
+; debounce_switches:db|debounce:db10|count[0] ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.START       ;
+; debounce_switches:db|debounce:db7|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.START        ;
+; debounce_switches:db|debounce:db6|count[0]  ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.START        ;
+; debounce_switches:db|debounce:db5|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.START        ;
+; debounce_switches:db|debounce:db4|count[0]  ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.START        ;
+; debounce_switches:db|debounce:db3|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.START        ;
+; debounce_switches:db|debounce:db2|count[0]  ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.START        ;
+; debounce_switches:db|debounce:db1|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.START        ;
+; debounce_switches:db|debounce:db0|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.START        ;
++---------------------------------------------+--------------------+--------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1037,46 +968,44 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 174   ;
-; Number of registers using Synchronous Clear  ; 86    ;
-; Number of registers using Synchronous Load   ; 50    ;
-; Number of registers using Asynchronous Clear ; 152   ;
+; Total registers                              ; 151   ;
+; Number of registers using Synchronous Clear  ; 60    ;
+; Number of registers using Synchronous Load   ; 34    ;
+; Number of registers using Asynchronous Clear ; 129   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 117   ;
+; Number of registers using Clock Enable       ; 94    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|read_buf_mem_address[5]                                                                                                        ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db19|count[7]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db18|count[0]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db17|count[2]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db16|count[7]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db15|count[7]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db14|count[5]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db13|count[2]                                                                                                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db12|count[3]                                                                                                                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db11|count[4]                                                                                                                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db10|count[0]                                                                                                                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db7|count[7]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db6|count[7]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db5|count[6]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db4|count[1]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db3|count[4]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db2|count[7]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db1|count[1]                                                                                                                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db0|count[7]                                                                                                                      ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 0 LEs                ; 63 LEs                 ; Yes        ; |vga_driver_to_frame_buf|square_drawer:drawmysquare|x[6]                                                                                                                                 ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 0 LEs                ; 63 LEs                 ; Yes        ; |vga_driver_to_frame_buf|square_drawer:drawmysquare|y[12]                                                                                                                                ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2|l2_w14_n0_mux_dataout ;
-; 9:1                ; 24 bits   ; 144 LEs       ; 144 LEs              ; 0 LEs                  ; No         ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|VGA_R[7]                                                                                                                       ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |vga_driver_to_frame_buf|square_drawer:drawmysquare|Selector44                                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|read_buf_mem_address[13]                                                                                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db19|count[2]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db18|count[7]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db17|count[7]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db16|count[0]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db15|count[4]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db14|count[4]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db13|count[6]                                                                                                                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db12|count[4]                                                                                                                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |vga_driver_to_frame_buf|the_vga_draw_frame_write_mem_address[6]                                                                                                                        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db11|count[0]                                                                                                                    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db10|count[7]                                                                                                                    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db7|count[3]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db6|count[5]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db5|count[4]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db4|count[5]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db3|count[2]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db2|count[0]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db1|count[1]                                                                                                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_to_frame_buf|debounce_switches:db|debounce:db0|count[7]                                                                                                                     ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2|l2_w0_n0_mux_dataout ;
+; 9:1                ; 24 bits   ; 144 LEs       ; 144 LEs              ; 0 LEs                  ; No         ; |vga_driver_to_frame_buf|vga_frame_driver:my_frame_driver|VGA_B[0]                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1128,12 +1057,13 @@ Encoding Type:  One-Hot
 ; VIRTUAL_PIXEL_HEIGHT ; 0000000001111000 ; Unsigned Binary                               ;
 ; INIT                 ; 0000             ; Unsigned Binary                               ;
 ; FILL_WHITE           ; 0001             ; Unsigned Binary                               ;
-; DRAW_RESET           ; 0010             ; Unsigned Binary                               ;
-; DRAW_SQUARE          ; 0011             ; Unsigned Binary                               ;
-; DONE                 ; 0100             ; Unsigned Binary                               ;
-; SCREEN_WIDTH         ; 0000001010000000 ; Unsigned Binary                               ;
-; SCREEN_HEIGHT        ; 0000000111100000 ; Unsigned Binary                               ;
-; DEFAULT_SQUARE_SIZE  ; 0000000011001000 ; Unsigned Binary                               ;
+; DRAW_WAIT            ; 0010             ; Unsigned Binary                               ;
+; DRAW_RESET           ; 0011             ; Unsigned Binary                               ;
+; DRAW_SQUARE          ; 0100             ; Unsigned Binary                               ;
+; DONE                 ; 0101             ; Unsigned Binary                               ;
+; SCREEN_WIDTH         ; 0000000010100000 ; Unsigned Binary                               ;
+; SCREEN_HEIGHT        ; 0000000001111000 ; Unsigned Binary                               ;
+; DEFAULT_SQUARE_SIZE  ; 0000000000110010 ; Unsigned Binary                               ;
 +----------------------+------------------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1651,19 +1581,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: square_drawer:drawmysquare ;
-+----------------+-------+------------------------------------------------+
-; Parameter Name ; Value ; Type                                           ;
-+----------------+-------+------------------------------------------------+
-; IDLE           ; 000   ; Unsigned Binary                                ;
-; START_DRAW     ; 001   ; Unsigned Binary                                ;
-; DRAWING        ; 010   ; Unsigned Binary                                ;
-; FINISHED       ; 011   ; Unsigned Binary                                ;
-+----------------+-------+------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-------------------------------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                                          ;
 +-------------------------------------------+-----------------------------------------------------------------------------------------------+
@@ -1706,15 +1623,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-----------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "square_drawer:drawmysquare"                                                               ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; address    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; data       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; writepixel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rectangle_drawer:draw"                                                                                                                                                               ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; width   ; Input ; Warning  ; Input port expression (20 bits) is wider than the input port (8 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; height  ; Input ; Warning  ; Input port expression (20 bits) is wider than the input port (8 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; start_x ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; start_y ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1772,24 +1690,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 174                         ;
-;     CLR               ; 16                          ;
-;     CLR SLD           ; 35                          ;
+; arriav_ff             ; 151                         ;
+;     CLR               ; 32                          ;
+;     CLR SLD           ; 19                          ;
 ;     ENA               ; 16                          ;
-;     ENA CLR SCLR      ; 86                          ;
+;     ENA CLR           ; 3                           ;
+;     ENA CLR SCLR      ; 60                          ;
 ;     ENA CLR SLD       ; 15                          ;
 ;     plain             ; 6                           ;
-; arriav_lcell_comb     ; 421                         ;
-;     arith             ; 77                          ;
-;         1 data inputs ; 77                          ;
-;     normal            ; 320                         ;
+; arriav_lcell_comb     ; 387                         ;
+;     arith             ; 51                          ;
+;         1 data inputs ; 51                          ;
+;     normal            ; 312                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 89                          ;
-;         3 data inputs ; 63                          ;
-;         4 data inputs ; 21                          ;
-;         5 data inputs ; 51                          ;
-;         6 data inputs ; 92                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 82                          ;
+;         3 data inputs ; 60                          ;
+;         4 data inputs ; 24                          ;
+;         5 data inputs ; 46                          ;
+;         6 data inputs ; 94                          ;
 ;     shared            ; 24                          ;
 ;         1 data inputs ; 8                           ;
 ;         2 data inputs ; 6                           ;
@@ -1799,7 +1718,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 288                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.90                        ;
-; Average LUT depth     ; 1.82                        ;
+; Average LUT depth     ; 1.69                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1818,47 +1737,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Dec 12 19:21:40 2024
+    Info: Processing started: Thu Dec 12 21:55:46 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_driver_to_frame_buf -c vga_driver_to_frame_buf
 Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file vga_frame_driver.v
-    Info (12023): Found entity 1: vga_frame_driver File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 1
+    Info (12023): Found entity 1: vga_frame_driver File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga_frame.v
-    Info (12023): Found entity 1: vga_frame File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame.v Line: 40
+    Info (12023): Found entity 1: vga_frame File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame.v Line: 40
 Info (12021): Found 2 design units, including 2 entities, in source file debounce.v
-    Info (12023): Found entity 1: debounce_switches File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v Line: 1
-    Info (12023): Found entity 2: debounce File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v Line: 29
+    Info (12023): Found entity 1: debounce_switches File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v Line: 1
+    Info (12023): Found entity 2: debounce File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v Line: 29
 Info (12021): Found 2 design units, including 2 entities, in source file vga_driver_to_frame_buf.v
-    Info (12023): Found entity 1: vga_driver_to_frame_buf File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 1
-    Info (12023): Found entity 2: square_drawer File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 339
+    Info (12023): Found entity 1: vga_driver_to_frame_buf File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 1
+    Info (12023): Found entity 2: rectangle_drawer File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 336
 Info (12021): Found 1 design units, including 1 entities, in source file vga_driver.v
-    Info (12023): Found entity 1: vga_driver File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver.v Line: 11
-Warning (10236): Verilog HDL Implicit Net warning at vga_driver_to_frame_buf.v(267): created implicit net for "the_vga_draw_fram_write_mem_address" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 267
-Warning (10236): Verilog HDL Implicit Net warning at vga_driver_to_frame_buf.v(268): created implicit net for "the_vga_draw_fram_write_mem_data" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 268
-Warning (10236): Verilog HDL Implicit Net warning at vga_driver_to_frame_buf.v(269): created implicit net for "the_vga_draw_fram_write_a_pixel" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 269
+    Info (12023): Found entity 1: vga_driver File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver.v Line: 11
 Info (12127): Elaborating entity "vga_driver_to_frame_buf" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(267): object "the_vga_draw_fram_write_mem_address" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 267
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(268): object "the_vga_draw_fram_write_mem_data" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 268
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(269): object "the_vga_draw_fram_write_a_pixel" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 269
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(189): object "square_start_addr" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 189
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(190): object "square_row" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 190
-Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(190): object "square_col" assigned a value but never read File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 190
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(267): truncated value with size 15 to match size of target (1) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 267
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(268): truncated value with size 24 to match size of target (1) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 268
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(308): truncated value with size 32 to match size of target (20) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 308
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(309): truncated value with size 32 to match size of target (20) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 309
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(325): truncated value with size 32 to match size of target (15) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 325
-Info (12128): Elaborating entity "debounce_switches" for hierarchy "debounce_switches:db" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 112
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce_switches:db|debounce:db0" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v Line: 8
-Info (10264): Verilog HDL Case Statement information at debounce.v(59): all case item expressions in this case statement are onehot File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v Line: 59
-Info (10264): Verilog HDL Case Statement information at debounce.v(95): all case item expressions in this case statement are onehot File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/debounce.v Line: 95
-Info (12128): Elaborating entity "vga_frame_driver" for hierarchy "vga_frame_driver:my_frame_driver" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 149
-Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(157): all case item expressions in this case statement are onehot File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 157
-Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(214): all case item expressions in this case statement are onehot File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 214
-Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 51
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame.v Line: 86
-Info (12130): Elaborated megafunction instantiation "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame.v Line: 86
-Info (12133): Instantiated megafunction "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame.v Line: 86
+Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(189): object "square_start_addr" assigned a value but never read File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 189
+Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(190): object "square_row" assigned a value but never read File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 190
+Warning (10036): Verilog HDL or VHDL warning at vga_driver_to_frame_buf.v(190): object "square_col" assigned a value but never read File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 190
+Info (10264): Verilog HDL Case Statement information at vga_driver_to_frame_buf.v(285): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 285
+Info (12128): Elaborating entity "debounce_switches" for hierarchy "debounce_switches:db" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 112
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce_switches:db|debounce:db0" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v Line: 8
+Info (10264): Verilog HDL Case Statement information at debounce.v(59): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v Line: 59
+Info (10264): Verilog HDL Case Statement information at debounce.v(95): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/debounce.v Line: 95
+Info (12128): Elaborating entity "vga_frame_driver" for hierarchy "vga_frame_driver:my_frame_driver" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 149
+Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(157): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 157
+Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(214): all case item expressions in this case statement are onehot File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 214
+Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 51
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame.v Line: 86
+Info (12130): Elaborated megafunction instantiation "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame.v Line: 86
+Info (12133): Instantiated megafunction "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "image.mif"
@@ -1875,94 +1784,93 @@ Info (12133): Instantiated megafunction "vga_frame_driver:my_frame_driver|vga_fr
     Info (12134): Parameter "width_a" = "24"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1go1.tdf
-    Info (12023): Found entity 1: altsyncram_1go1 File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 34
+    Info (12023): Found entity 1: altsyncram_1go1 File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_1go1" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_8la.tdf
-    Info (12023): Found entity 1: decode_8la File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/decode_8la.tdf Line: 23
-Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 44
+    Info (12023): Found entity 1: decode_8la File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/decode_8la.tdf Line: 23
+Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_11a.tdf
-    Info (12023): Found entity 1: decode_11a File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/decode_11a.tdf Line: 23
-Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 45
+    Info (12023): Found entity 1: decode_11a File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/decode_11a.tdf Line: 23
+Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 45
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
-    Info (12023): Found entity 1: mux_6hb File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/mux_6hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 46
-Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_frame_driver:my_frame_driver|vga_driver:the_vga" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 139
-Info (12128): Elaborating entity "square_drawer" for hierarchy "square_drawer:drawmysquare" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 265
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(397): truncated value with size 32 to match size of target (15) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 397
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(401): truncated value with size 32 to match size of target (21) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 401
-Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(406): truncated value with size 32 to match size of target (21) File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 406
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Info (12023): Found entity 1: mux_6hb File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/mux_6hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/db/altsyncram_1go1.tdf Line: 46
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_frame_driver:my_frame_driver|vga_driver:the_vga" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_frame_driver.v Line: 139
+Info (12128): Elaborating entity "rectangle_drawer" for hierarchy "rectangle_drawer:draw" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 265
+Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(416): truncated value with size 32 to match size of target (8) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 416
+Warning (10230): Verilog HDL assignment warning at vga_driver_to_frame_buf.v(422): truncated value with size 32 to match size of target (8) File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 422
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 80
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 40
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 41
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 42
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 43
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 55
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 80
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 322 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/output_files/vga_driver_to_frame_buf.map.smsg
+Info (144001): Generated suppressed messages file M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/output_files/vga_driver_to_frame_buf.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
-    Warning (15610): No output dependent on input pin "KEY[2]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
-    Warning (15610): No output dependent on input pin "KEY[3]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
-    Warning (15610): No output dependent on input pin "SW[9]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[8]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[7]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[6]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[5]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[4]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[3]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[2]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[1]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[0]" File: M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
-Info (21057): Implemented 839 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
+    Warning (15610): No output dependent on input pin "KEY[2]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
+    Warning (15610): No output dependent on input pin "KEY[3]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 52
+    Warning (15610): No output dependent on input pin "SW[9]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[8]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[7]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[6]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[5]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[4]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[3]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[2]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[1]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[0]" File: M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/vga_driver_to_frame_buf.v Line: 64
+Info (21057): Implemented 789 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 67 output pins
-    Info (21061): Implemented 469 logic cells
+    Info (21061): Implemented 419 logic cells
     Info (21064): Implemented 288 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
-    Info: Peak virtual memory: 4892 megabytes
-    Info: Processing ended: Thu Dec 12 19:21:52 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 57 warnings
+    Info: Peak virtual memory: 4903 megabytes
+    Info: Processing ended: Thu Dec 12 21:55:58 2024
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in M:/Project/WORKING COPY OF V_1/vga_driver_to_frame_buf/output_files/vga_driver_to_frame_buf.map.smsg.
+The suppressed messages can be found in M:/Project/WORKING_COPY_OF_V1/vga_driver_to_frame_buf/output_files/vga_driver_to_frame_buf.map.smsg.
 
 
